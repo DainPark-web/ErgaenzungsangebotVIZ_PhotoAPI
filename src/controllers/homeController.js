@@ -8,14 +8,19 @@ const unsplash = createApi({
   });
 
 export const home = async (req, res) => {
-    unsplash.photos.get({ photoId: 'foo' }).then(result => {
+    unsplash.users.getPhotos({ username: 'park' }).then(result => {
         if (result.errors) {
           // handle error here
           console.log('error occurred: ', result.errors[0]);
         } else {
+          const feed = result.response;
+      
+          // extract total and results array from response
+          const { total, results } = feed;
+      
           // handle success here
-          const photo = result.response;
-          console.log(photo);
+          console.log(`received ${results.length} photos out of ${total}`);
+          console.log('first photo: ', results[0]);
         }
       });
     return res.send("home")
