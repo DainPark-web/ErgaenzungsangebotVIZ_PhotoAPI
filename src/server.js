@@ -1,10 +1,11 @@
 import express from "express";
+import homeRouter from "./routers/homeRouter";
 
 const app = express();
 const PORT = 4000;
 
 
-
+app.use("/", homeRouter);
 
 
 
