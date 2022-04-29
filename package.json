@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:server": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/DainPark-web/ErgaenzungsangebotVIZ_PhotoAPI/issues"
   },
-  "homepage": "https://github.com/DainPark-web/ErgaenzungsangebotVIZ_PhotoAPI#readme"
+  "homepage": "https://github.com/DainPark-web/ErgaenzungsangebotVIZ_PhotoAPI#readme",
+  "dependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.17.10"
+  }
 }
