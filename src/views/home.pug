@@ -6,9 +6,11 @@ block title
 block content
     div total: #{photos.length}
     div page: #{curPage}
+    
     form(method="GET")
-        input(type="text", name="page")
-        input(type="submit", value="page")
+        input(type="text", name="search")
+        input(type="text", name="page", value=curPage)
+        input(type="submit", value="search")
     div#photoList
         for photo in photos 
             +photo(photo)
