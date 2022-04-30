@@ -12,7 +12,7 @@ app.set('view engine', 'pug');
 app.set("views", process.cwd() + '/src/views');
 
 //frontend
-app.use("client", express.static(__dirname + "/client"))
+app.use("/client", express.static(__dirname + "/client"))
 
 app.use("/", homeRouter);
 

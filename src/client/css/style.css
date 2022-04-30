@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container{
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px 20px 40px 20px;
+    
+    
+}
+
+#photoList{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}

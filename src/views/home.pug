@@ -1,7 +1,11 @@
 extends base.pug
+include mixins/photo.pug
 
 block title 
-    h3 home
+    h3 Photo_Dain
 block content
-    for photo in photos 
-        div #{photo.id}
+    div#photoList
+        for photo in photos 
+            +photo(photo)
+block script    
+    script(src="../client/js/home.js") 
