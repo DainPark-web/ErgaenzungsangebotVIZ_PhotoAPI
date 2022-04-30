@@ -8,7 +8,7 @@ const unsplash = createApi({
   });
 
 export const home = async (req, res) => {
-    unsplash.search.getPhotos({query: "male", page:req.query.page ? req.query.page : 1, perPage: 60}).then(result => {
+    unsplash.search.getPhotos({query: "history", page:req.query.page ? req.query.page : 1, perPage: 60}).then(result => {
         if (result.errors) {
           // handle error
           // Immer zuerst
