@@ -4,8 +4,14 @@ include mixins/photo.pug
 block title 
     h3 Photo_Dain
 block content
+    div total: #{photos.length}
+    div page: #{curPage}
+    form(method="GET")
+        input(type="text", name="page")
+        input(type="submit", value="page")
     div#photoList
         for photo in photos 
             +photo(photo)
+    
 block script    
     script(src="../client/js/home.js") 

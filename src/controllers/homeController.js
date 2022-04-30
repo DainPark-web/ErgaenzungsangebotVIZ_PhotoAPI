@@ -8,7 +8,7 @@ const unsplash = createApi({
   });
 
 export const home = async (req, res) => {
-    unsplash.search.getPhotos({query: "dog", page:1, perPage: 10}).then(result => {
+    unsplash.search.getPhotos({query: "male", page:req.query.page ? req.query.page : 1, perPage: 60}).then(result => {
         if (result.errors) {
           // handle error
           // Immer zuerst
@@ -24,10 +24,11 @@ export const home = async (req, res) => {
       
           // handle success here
           console.log(`received ${results.length} photos out of ${total}`);
-          console.log('first photo: ', results);
-
+          // console.log('first photo: ', results);
+          const { query: {page}} = req; 
+          console.log(page);
           //rendering home pug
-          return res.render("home", {photos: results})
+          return res.render("home", {photos: results, curPage: page ? page : 1})
         }
       });
       
