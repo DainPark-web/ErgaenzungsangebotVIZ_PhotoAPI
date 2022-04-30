@@ -8,7 +8,7 @@ block content
     div page: #{curPage}
     
     form(method="GET")
-        input(type="text", name="search")
+        input(type="text", name="search", value=search)
         input(type="text", name="page", value=curPage)
         input(type="submit", value="search")
     div#photoList

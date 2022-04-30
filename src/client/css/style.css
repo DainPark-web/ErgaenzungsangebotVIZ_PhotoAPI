@@ -26,3 +26,8 @@
     background-position: center center;
     background-size: cover;
 }
+
+#colorBox {
+    width: 100%;
+    height: calc(2vw + 10px);
+}
