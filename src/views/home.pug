@@ -2,3 +2,6 @@ extends base.pug
 
 block title 
     h3 home
+block content
+    for photo in photos 
+        div #{photo.id}

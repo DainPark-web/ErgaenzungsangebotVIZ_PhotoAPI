@@ -27,7 +27,7 @@ export const home = async (req, res) => {
           console.log('first photo: ', results);
 
           //rendering home pug
-          return res.render("home")
+          return res.render("home", {photos: results})
         }
       });
       
