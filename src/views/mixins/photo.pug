@@ -1,4 +1,5 @@
 mixin photo(data)
     div
+        div(style=`background-image: url(${data.urls.small ? data.urls.small : data.urls.regular})`)#foto
         div ID: #{data.id}
         div Color: #{data.color}
