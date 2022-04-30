@@ -8,7 +8,8 @@ const unsplash = createApi({
   });
 
 export const home = async (req, res) => {
-    unsplash.users.getPhotos({ username: 'park' }).then(result => {
+    // unsplash.users.getPhotos({ username: 'park' }).then(result => {
+    unsplash.search.getPhotos({query: "cat", page:1, perPage: 10}).then(result => {
         if (result.errors) {
           // handle error here
           console.log('error occurred: ', result.errors[0]);
