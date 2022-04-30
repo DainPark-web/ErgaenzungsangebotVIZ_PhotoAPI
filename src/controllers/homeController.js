@@ -9,10 +9,14 @@ const unsplash = createApi({
 
 export const home = async (req, res) => {
     // unsplash.users.getPhotos({ username: 'park' }).then(result => {
-    unsplash.search.getPhotos({query: "cat", page:1, perPage: 10}).then(result => {
+    unsplash.search.getPhotos({query: "dog", page:1, perPage: 10}).then(result => {
         if (result.errors) {
-          // handle error here
+          // handle error
+          // Immer zuerst
           console.log('error occurred: ', result.errors[0]);
+
+          // Mach hier redirect => "/"
+          return res.send("error")
         } else {
           const feed = result.response;
       
@@ -21,8 +25,11 @@ export const home = async (req, res) => {
       
           // handle success here
           console.log(`received ${results.length} photos out of ${total}`);
-          console.log('first photo: ', results[0]);
+          console.log('first photo: ', results);
+
+          //rendering home pug
+          return res.send("home")
         }
       });
-    return res.send("home")
+   
 }
