@@ -8,7 +8,6 @@ const unsplash = createApi({
   });
 
 export const home = async (req, res) => {
-    // unsplash.users.getPhotos({ username: 'park' }).then(result => {
     unsplash.search.getPhotos({query: "dog", page:1, perPage: 10}).then(result => {
         if (result.errors) {
           // handle error
@@ -28,8 +27,9 @@ export const home = async (req, res) => {
           console.log('first photo: ', results);
 
           //rendering home pug
-          return res.send("home")
+          return res.render("home")
         }
       });
+      
    
 }
