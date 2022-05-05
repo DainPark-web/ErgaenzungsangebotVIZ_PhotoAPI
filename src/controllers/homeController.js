@@ -28,6 +28,7 @@ export const home = async (req, res) => {
           // console.log('first photo: ', results);
           // console.log(page);
           //rendering home pug
+          console.log(results)
           return res.render("home", {photos: results, curPage: page ? page : 1, search: search ? search: "random"})
         }
       });
