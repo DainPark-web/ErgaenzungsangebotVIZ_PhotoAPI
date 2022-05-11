@@ -1,19 +1,18 @@
 extends base.pug
-include mixins/photo.pug
+include mixins/ex01f.pug
 
 block title 
-    h3 Photo_Dain
+    h3 Experiment_01
 block content
-    div total: #{photos.length}
-    div page: #{curPage}
-    
-    form(method="GET")
-        input(type="text", name="search", value=search)
-        input(type="text", name="page", value=curPage)
-        input(type="submit", value="search")
-    div#photoList
-        for photo in photos 
-            +photo(photo)
+    div#photoList_ex01
+        for photo in maleList 
+            +ex01f(photo)
+    div#photoList_ex01
+        for photo in femaleList 
+            +ex01f(photo)
+    div#photoList_ex01
+        for photo in maleList 
+            +ex01f(photo)
     
 block script    
     script(src="../client/js/home.js") 

@@ -1,0 +1,6 @@
+#photoList_ex01{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0px;
+}
