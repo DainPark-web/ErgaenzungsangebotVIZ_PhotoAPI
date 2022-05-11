@@ -8,5 +8,4 @@
 
 
 ### Note
-- Check das Api kostenlos ist.⭐️
-- Versteck ACCESS KEY durch Dotenv
+- color, likes, 을 크기로 pie 만들어 보기 칼라칩 느낌 동그랗게
