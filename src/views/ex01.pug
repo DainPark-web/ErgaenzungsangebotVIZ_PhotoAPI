@@ -2,17 +2,26 @@ extends base.pug
 include mixins/ex01f.pug
 
 block title 
-    h3 Experiment_01
+   
 block content
-    div#photoList_ex01
-        for photo in maleList 
-            +ex01f(photo)
-    div#photoList_ex01
-        for photo in femaleList 
-            +ex01f(photo)
-    div#photoList_ex01
-        for photo in maleList 
-            +ex01f(photo)
+    div#container_ex01
+        h3 Experiment_01
+        div#photoList_wrapper
+            div#photoItemBox
+                div Old
+                div#photoList_ex01
+                    for photo in maleList 
+                        +ex01f(photo)
+                    for photo in maleList 
+                        +ex01f(photo)
+            div#photoItemBox
+                div New
+                div#photoList_ex01
+                    for photo in femaleList 
+                        +ex01f(photo)
+                    for photo in femaleList 
+                        +ex01f(photo)
+        
     
 block script    
     script(src="../client/js/home.js") 

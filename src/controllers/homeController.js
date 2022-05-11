@@ -40,7 +40,7 @@ export const ex01 = async (req, res) => {
   const { query: {page, search}} = req; 
   let maleList;
   let femaleList;
-  await unsplash.search.getPhotos({query: "male", perPage: 30}).then(result => {
+  await unsplash.search.getPhotos({query: "old", perPage: 30}).then(result => {
         if (result.errors) {
        
           console.log('error occurred: ', result.errors[0]);
@@ -61,7 +61,7 @@ export const ex01 = async (req, res) => {
         }
 
       });
-  await unsplash.search.getPhotos({query: "female", perPage: 30}).then(result => {
+  await unsplash.search.getPhotos({query: "new", perPage: 30}).then(result => {
         if (result.errors) {
        
           console.log('error occurred: ', result.errors[0]);

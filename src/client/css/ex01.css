@@ -1,6 +1,27 @@
+
+#container_ex01{
+    padding: 20px;
+}
+
+#photoList_wrapper{
+    display: flex;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+#photoItemBox{
+    width: 100%;
+}
+
 #photoList_ex01{
-    margin-top: 50px;
+    
+    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 0px;
+}
+
+#colorBox_ex01 {
+    width: 100%;
+    height: calc(1vw + 10px);
 }
