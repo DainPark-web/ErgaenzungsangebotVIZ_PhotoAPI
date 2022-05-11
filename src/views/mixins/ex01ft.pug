@@ -1,0 +1,14 @@
+mixin ex01ft(data)
+    div#textbox_item
+        //- div(style=`background-image: url(${data.urls.small ? data.urls.small : data.urls.regular})`)#photoBox_ex01
+        //- div(style=`background: ${data.color}`)#colorBox_ex01
+        //- div.textBox_item_t ID: #{data.id}
+        //- div.textBox_item_t Views: #{data.views}
+        //- div.textBox_item_t Date: #{(data.created_at).slice(0, 10)}
+        //- div.textBox_item_t name: #{data.user.name}
+        div.textBox_item_t Color: #{data.color}
+        div.textBox_item_t Likes: #{data.likes}
+        div.textBox_item_t user_total_photos: #{data.user.total_photos}
+        div.textBox_item_t user_total_like: #{data.user.total_likes}
+        div.textBox_item_t Location: #{data.user.location ? data.user.location : "X"}
+        //- div user_total_collections: #{data.user.total_collections}

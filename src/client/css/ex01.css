@@ -3,7 +3,7 @@
     padding: 20px;
 }
 
-#photoList_wrapper{
+#colorList_wrapper{
     display: flex;
     gap: 50px;
     margin-top: 40px;
@@ -19,8 +19,35 @@
     grid-template-columns: repeat(20, 1fr);
     grid-gap: 0px;
 }
+#photoList_ex01p{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 0px;
+}
 
+#photoBox_ex01 {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+}
 #colorBox_ex01 {
     width: 100%;
     aspect-ratio: 1/1;
+}
+
+
+#textList_ex01{
+    margin-top: 10px;
+    
+}
+
+#textbox_item{
+    display: flex;
+    gap: 20px;
+}
+.textBox_item_t{
+    flex:1;
+    font-size:13px;
+    margin-bottom: 10px;
 }
