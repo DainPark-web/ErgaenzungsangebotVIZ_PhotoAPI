@@ -1,0 +1,19 @@
+extends base.pug
+include mixins/photo.pug
+
+block title 
+    h3 Photo_Dain
+block content
+    div total: #{photos.length}
+    div page: #{curPage}
+    
+    form(method="GET")
+        input(type="text", name="search", value=search)
+        input(type="text", name="page", value=curPage)
+        input(type="submit", value="search")
+    div#photoList
+        for photo in photos 
+            +photo(photo)
+    
+block script    
+    script(src="../client/js/home.js") 

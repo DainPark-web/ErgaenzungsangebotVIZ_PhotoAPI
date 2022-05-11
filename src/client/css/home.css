@@ -1,0 +1,28 @@
+
+#container{
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px 20px 40px 20px;
+    
+    
+}
+
+#photoList{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+#foto {
+    width: 100%;
+    height: calc(10vw + 20px);
+    background-position: center center;
+    background-size: cover;
+}
+
+#colorBox {
+    width: 100%;
+    height: calc(2vw + 10px);
+}
