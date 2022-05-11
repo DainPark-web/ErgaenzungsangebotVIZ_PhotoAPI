@@ -38,8 +38,10 @@ export const home = async (req, res) => {
 
 export const ex01 = async (req, res) => {
   const { query: {page, search}} = req; 
-  let maleList;
-  let femaleList;
+  let oldList;
+  let newList;
+  let oldList2;
+  let newList2;
   await unsplash.search.getPhotos({query: "old", perPage: 30}).then(result => {
         if (result.errors) {
        
@@ -57,7 +59,7 @@ export const ex01 = async (req, res) => {
           console.log(`received ${results.length} photos out of ${total}`);
        
           console.log(results)
-          maleList = results
+          oldList = results
         }
 
       });
@@ -78,10 +80,52 @@ export const ex01 = async (req, res) => {
           console.log(`received ${results.length} photos out of ${total}`);
        
           console.log(results)
-          femaleList = results
+          newList = results
         }
 
       });
-    return res.render("ex01", {maleList: maleList, femaleList: femaleList, curPage: page ? page : 1, search: "male"})
+  await unsplash.search.getPhotos({query: "old", perPage: 30, page:2}).then(result => {
+        if (result.errors) {
+       
+          console.log('error occurred: ', result.errors[0]);
+
+          // Mach hier redirect => "/"
+          return res.send("error")
+        } else {
+          const feed = result.response;
+      
+  
+          const { total, results } = feed;
+      
+          // handle success here
+          console.log(`received ${results.length} photos out of ${total}`);
+       
+          console.log(results)
+          oldList2 = results
+        }
+
+      });
+  await unsplash.search.getPhotos({query: "new", perPage: 30, page:2}).then(result => {
+        if (result.errors) {
+       
+          console.log('error occurred: ', result.errors[0]);
+
+          // Mach hier redirect => "/"
+          return res.send("error")
+        } else {
+          const feed = result.response;
+      
+  
+          const { total, results } = feed;
+      
+          // handle success here
+          console.log(`received ${results.length} photos out of ${total}`);
+       
+          console.log(results)
+          newList2 = results
+        }
+
+      });
+    return res.render("ex01", {oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
       
 }
