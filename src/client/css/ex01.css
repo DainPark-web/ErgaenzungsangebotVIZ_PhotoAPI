@@ -14,14 +14,13 @@
 }
 
 #photoList_ex01{
-    
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(20, 1fr);
     grid-gap: 0px;
 }
 
 #colorBox_ex01 {
     width: 100%;
-    height: calc(1vw + 10px);
+    aspect-ratio: 1/1;
 }
