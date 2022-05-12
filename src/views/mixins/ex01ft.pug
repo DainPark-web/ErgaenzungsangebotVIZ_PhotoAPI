@@ -6,7 +6,7 @@ mixin ex01ft(data)
         //- div.textBox_item_t Views: #{data.views}
         //- div.textBox_item_t Date: #{(data.created_at).slice(0, 10)}
         //- div.textBox_item_t name: #{data.user.name}
-        div.textBox_item_t Color: #{data.color}
+        div(style=`background: ${data.color}`).textBox_item_t Color: #{data.color}
         div.textBox_item_t Likes: #{data.likes}
         div.textBox_item_t user_total_photos: #{data.user.total_photos}
         div.textBox_item_t user_total_like: #{data.user.total_likes}

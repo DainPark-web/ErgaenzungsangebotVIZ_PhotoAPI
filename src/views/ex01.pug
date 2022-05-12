@@ -69,11 +69,27 @@ block content
                         +ex01fl(photo)
         div#colorList_wrapper
             div#photoItemBox
-                div R:#{totalOldColor_analyse.r} G:#{totalOldColor_analyse.g} B:#{totalOldColor_analyse.b}
+                div R:#{totalOldColor_analyse.r} G:#{totalOldColor_analyse.g} B:#{totalOldColor_analyse.b} &rarr; Warme Farbe
                 div Total likes : #{total_likes_old}
+                div Total user_total_like : #{total_likes_user_old}
+                div Total user_photo : #{total_photo_user_old}
             div#photoItemBox
-                div R:#{totalNewColor_analyse.r} G:#{totalNewColor_analyse.g} B:#{totalNewColor_analyse.b}
-                 div Total likes : #{total_likes_new}
+                div R:#{totalNewColor_analyse.r} G:#{totalNewColor_analyse.g} B:#{totalNewColor_analyse.b} &rarr; Kalte Farbe
+                div Total likes : #{total_likes_new}
+                div Total user_total_like : #{total_likes_user_new}
+                div Total user_photo : #{total_photo_user_new}
+        div#colorList_wrapper
+            div#photoItemBox
+                div#tetList_ex01
+                    for photo in oldgroup
+                        +ex01ft(photo)
+                   
+                div 
+            div#photoItemBox
+                div#textList_ex01
+                    for photo in newgroup 
+                        +ex01ft(photo)
+                   
                     
         
     
