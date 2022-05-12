@@ -52,7 +52,7 @@ h3{
 }
 .textBox_item_t{
     flex:1;
-    font-size:13px;
+    font-size: calc(0.5vw + 3px);
     margin-bottom: 10px;
 }
 
