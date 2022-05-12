@@ -67,6 +67,13 @@ block content
                 div#photoList_ex01
                     for photo in totalNewColor 
                         +ex01fl(photo)
+        div#colorList_wrapper
+            div#photoItemBox
+                div R:#{totalOldColor_analyse.r} G:#{totalOldColor_analyse.g} B:#{totalOldColor_analyse.b}
+                div Total likes : #{total_likes_old}
+            div#photoItemBox
+                div R:#{totalNewColor_analyse.r} G:#{totalNewColor_analyse.g} B:#{totalNewColor_analyse.b}
+                 div Total likes : #{total_likes_new}
                     
         
     

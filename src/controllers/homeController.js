@@ -129,12 +129,63 @@ export const ex01 = async (req, res) => {
     const ocolorL = Array.from(new Set(oldList.map(e => e.color)))
     const ocolorL2 = Array.from(new Set(oldList2.map(e => e.color)))
     const totalOldColor = Array.from(new Set(ocolorL.concat(ocolorL2)))
+    const totalOldColor_to_rgb = totalOldColor.map((hex) => {
+      let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    })
+    const totalOldColor_analyse = totalOldColor_to_rgb.reduce((prev, curr) => {
+      const r = prev.r + curr.r;
+      const g = prev.g + curr.g;
+      const b = prev.b + curr.b;
+      return {r, g, b}
+    })
+
+    const total_likes_old = oldList.map((e) => {
+        return e.likes;
+    }).reduce((prev, curr) => {
+      return prev + curr
+    }) + oldList2.map((e) => {
+      return e.likes;
+  }).reduce((prev, curr) => {
+    return prev + curr
+  })
+    const total_likes_new = newList.map((e) => {
+        return e.likes;
+    }).reduce((prev, curr) => {
+      return prev + curr
+    }) + newList2.map((e) => {
+      return e.likes;
+  }).reduce((prev, curr) => {
+    return prev + curr
+  })
+    
+    // console.log(total_likes)
+   
 
     const ncolorL = Array.from(new Set(newList.map(e => e.color)))
     const ncolorL2 = Array.from(new Set(newList2.map(e => e.color)))
     const totalNewColor = Array.from(new Set(ncolorL.concat(ncolorL2)))
+    const totalNewColor_to_rgb = totalNewColor.map((hex) => {
+      let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    })
 
-    console.log(totalOldColor.length)
-    return res.render("ex01", {totalOldColor: totalOldColor,totalNewColor:totalNewColor,  oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
+    const totalNewColor_analyse = totalNewColor_to_rgb.reduce((prev, curr) => {
+      const r = prev.r + curr.r;
+      const g = prev.g + curr.g;
+      const b = prev.b + curr.b;
+      return {r, g, b}
+    })
+
+    console.log(totalNewColor_analyse)
+    return res.render("ex01", {total_likes_old, total_likes_new,totalOldColor_analyse,totalNewColor_analyse, totalOldColor: totalOldColor_to_rgb,totalNewColor:totalNewColor_to_rgb,  oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
       
 }
