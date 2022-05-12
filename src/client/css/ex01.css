@@ -3,6 +3,10 @@
     padding: 20px;
 }
 
+h3{
+    margin-bottom: 30px;
+}
+
 #colorList_wrapper{
     display: flex;
     gap: 50px;
@@ -50,4 +54,18 @@
     flex:1;
     font-size:13px;
     margin-bottom: 10px;
+}
+
+.title_ex01{
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+}
+.title_ex02{
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }

@@ -1,0 +1,12 @@
+mixin ex01fl(data)
+    div
+        //- div(style=`background-image: url(${data.urls.small ? data.urls.small : data.urls.regular})`)#foto
+        div(style=`background: ${data}`)#colorBox_ex01
+        //- div Color: #{data.color}
+        //- div ID: #{data.id}
+        //- div Date: #{(data.created_at).slice(0, 10)}
+        //- div Likes: #{data.likes}
+        //- div name: #{data.user.name}
+        //- div user_total_coll_photos: #{data.user.total_photos}
+        //- div user_total_collections: #{data.user.total_collections}
+        //- div user_total_like: #{data.user.total_likes}

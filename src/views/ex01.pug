@@ -2,16 +2,17 @@ extends base.pug
 include mixins/ex01f.pug
 include mixins/ex01fp.pug
 include mixins/ex01ft.pug
+include mixins/ex01fl.pug
 
 block title 
    
 block content
     div#container_ex01
         h3 Experiment_01
-
+        div.title_ex01 Datensätze
         div#colorList_wrapper
             div#photoItemBox
-                div Old
+                div.title_ex01 Old
                 div#photoList_ex01p
                     for photo in oldList 
                         +ex01fp(photo)
@@ -19,7 +20,7 @@ block content
                         +ex01fp(photo)
                 div 
             div#photoItemBox
-                div New
+                div.title_ex01 New
                 div#photoList_ex01p
                     for photo in newList 
                         +ex01fp(photo)
@@ -53,6 +54,20 @@ block content
                         +ex01ft(photo)
                     for photo in newList2 
                         +ex01ft(photo)
+        div.title_ex02 Analyse
+        div#colorList_wrapper
+            div#photoItemBox
+                div#photoList_ex01
+                    for photo in totalOldColor 
+                        +ex01fl(photo)
+                    //- for photo in ocolorL2 
+                    //-     +ex01fl(photo)
+                div 
+            div#photoItemBox
+                div#photoList_ex01
+                    for photo in totalNewColor 
+                        +ex01fl(photo)
+                    
         
     
 block script    

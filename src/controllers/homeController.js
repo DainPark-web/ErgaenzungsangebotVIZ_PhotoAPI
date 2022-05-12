@@ -13,7 +13,7 @@ export const home = async (req, res) => {
         if (result.errors) {
           // handle error
           // Immer zuerst
-          console.log('error occurred: ', result.errors[0]);
+          // console.log('error occurred: ', result.errors[0]);
 
           // Mach hier redirect => "/"
           return res.send("error")
@@ -24,11 +24,11 @@ export const home = async (req, res) => {
           const { total, results } = feed;
       
           // handle success here
-          console.log(`received ${results.length} photos out of ${total}`);
+          // console.log(`received ${results.length} photos out of ${total}`);
           // console.log('first photo: ', results);
           // console.log(page);
           //rendering home pug
-          console.log(results)
+          // console.log(results)
           return res.render("home", {photos: results, curPage: page ? page : 1, search: search ? search: "random"})
         }
       });
@@ -45,7 +45,7 @@ export const ex01 = async (req, res) => {
   await unsplash.search.getPhotos({query: "old", perPage: 30}).then(result => {
         if (result.errors) {
        
-          console.log('error occurred: ', result.errors[0]);
+          // console.log('error occurred: ', result.errors[0]);
 
           // Mach hier redirect => "/"
           return res.send("error")
@@ -58,7 +58,7 @@ export const ex01 = async (req, res) => {
           // handle success here
           console.log(`received ${results.length} photos out of ${total}`);
        
-          console.log(results)
+          // console.log(results)
           oldList = results
         }
 
@@ -66,7 +66,7 @@ export const ex01 = async (req, res) => {
   await unsplash.search.getPhotos({query: "new", perPage: 30}).then(result => {
         if (result.errors) {
        
-          console.log('error occurred: ', result.errors[0]);
+          // console.log('error occurred: ', result.errors[0]);
 
           // Mach hier redirect => "/"
           return res.send("error")
@@ -77,9 +77,9 @@ export const ex01 = async (req, res) => {
           const { total, results } = feed;
       
           // handle success here
-          console.log(`received ${results.length} photos out of ${total}`);
+          // console.log(`received ${results.length} photos out of ${total}`);
        
-          console.log(results)
+          // console.log(results)
           newList = results
         }
 
@@ -87,7 +87,7 @@ export const ex01 = async (req, res) => {
   await unsplash.search.getPhotos({query: "old", perPage: 30, page:2}).then(result => {
         if (result.errors) {
        
-          console.log('error occurred: ', result.errors[0]);
+          // console.log('error occurred: ', result.errors[0]);
 
           // Mach hier redirect => "/"
           return res.send("error")
@@ -98,9 +98,9 @@ export const ex01 = async (req, res) => {
           const { total, results } = feed;
       
           // handle success here
-          console.log(`received ${results.length} photos out of ${total}`);
+          // console.log(`received ${results.length} photos out of ${total}`);
        
-          console.log(results)
+          // console.log(results)
           oldList2 = results
         }
 
@@ -108,7 +108,7 @@ export const ex01 = async (req, res) => {
   await unsplash.search.getPhotos({query: "new", perPage: 30, page:2}).then(result => {
         if (result.errors) {
        
-          console.log('error occurred: ', result.errors[0]);
+          // console.log('error occurred: ', result.errors[0]);
 
           // Mach hier redirect => "/"
           return res.send("error")
@@ -119,13 +119,22 @@ export const ex01 = async (req, res) => {
           const { total, results } = feed;
       
           // handle success here
-          console.log(`received ${results.length} photos out of ${total}`);
+          // console.log(`received ${results.length} photos out of ${total}`);
        
-          console.log(results)
+          // console.log(results)
           newList2 = results
         }
 
       });
-    return res.render("ex01", {oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
+    const ocolorL = Array.from(new Set(oldList.map(e => e.color)))
+    const ocolorL2 = Array.from(new Set(oldList2.map(e => e.color)))
+    const totalOldColor = Array.from(new Set(ocolorL.concat(ocolorL2)))
+
+    const ncolorL = Array.from(new Set(newList.map(e => e.color)))
+    const ncolorL2 = Array.from(new Set(newList2.map(e => e.color)))
+    const totalNewColor = Array.from(new Set(ncolorL.concat(ncolorL2)))
+
+    console.log(totalOldColor.length)
+    return res.render("ex01", {totalOldColor: totalOldColor,totalNewColor:totalNewColor,  oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
       
 }
