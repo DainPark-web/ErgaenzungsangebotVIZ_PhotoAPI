@@ -1,5 +1,6 @@
 extends base.pug
 include mixins/ex01f.pug
+include mixins/ex01floc.pug
 include mixins/ex01fp.pug
 include mixins/ex01ft.pug
 include mixins/ex01fl.pug
@@ -89,6 +90,15 @@ block content
                 div#textList_ex01
                     for photo in newgroup 
                         +ex01ft(photo)
+        div#colorList_wrapper
+            div#photoItemBox
+                div#tetList_ex01
+                    for photo in oLoc
+                        +ex01floc(photo)
+            div#photoItemBox
+                div#textList_ex01
+                    for photo in nLoc 
+                        +ex01floc(photo)
                    
                     
         

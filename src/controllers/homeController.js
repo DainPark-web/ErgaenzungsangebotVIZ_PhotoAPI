@@ -226,6 +226,22 @@ export const ex01 = async (req, res) => {
 
     const oldgroup = oldList.concat(oldList2).sort((a, b) => a.user.total_photos - b.user.total_photos);
     const newgroup = newList.concat(newList2).sort((a, b) => a.user.total_photos - b.user.total_photos);
-    return res.render("ex01", {oldgroup,newgroup, total_photo_user_old, total_photo_user_new,total_likes_user_old,total_likes_user_new, total_likes_old, total_likes_new,totalOldColor_analyse,totalNewColor_analyse, totalOldColor: totalOldColor_to_rgb,totalNewColor:totalNewColor_to_rgb,  oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
+
+
+    //location
+    const nLoc = Array.from(new Set(Array.from(new Set(newList.map(e => e.user.location))).concat(Array.from(new Set(newList2.map(e => e.user.location)))))).filter(e => {
+      if(e !== null){
+        return e 
+      }
+    }) 
+    const oLoc = Array.from(new Set(Array.from(new Set(oldList.map(e => e.user.location))).concat(Array.from(new Set(oldList2.map(e => e.user.location)))))).filter(e => {
+      if(e !== null){
+        return e
+      }
+    })
+
+    console.log(nLoc)
+    
+    return res.render("ex01", {nLoc,oLoc,oldgroup,newgroup, total_photo_user_old, total_photo_user_new,total_likes_user_old,total_likes_user_new, total_likes_old, total_likes_new,totalOldColor_analyse,totalNewColor_analyse, totalOldColor: totalOldColor_to_rgb,totalNewColor:totalNewColor_to_rgb,  oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
       
 }
