@@ -22,7 +22,7 @@ export const home = async (req, res) => {
       
           // extract total and results array from response
           const { total, results } = feed;
-          console.log(results)
+         
           // handle success here
           // console.log(`received ${results.length} photos out of ${total}`);
           // console.log('first photo: ', results);
@@ -105,7 +105,7 @@ export const ex01 = async (req, res) => {
         }
 
       });
-  await unsplash.search.getPhotos({query: "potrait young", perPage: 30, page:4}).then(result => {
+  await unsplash.search.getPhotos({query: "young potrait", perPage: 30, page:7}).then(result => {
         if (result.errors) {
        
           // console.log('error occurred: ', result.errors[0]);
