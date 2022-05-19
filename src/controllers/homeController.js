@@ -22,7 +22,7 @@ export const home = async (req, res) => {
       
           // extract total and results array from response
           const { total, results } = feed;
-      
+          console.log(results)
           // handle success here
           // console.log(`received ${results.length} photos out of ${total}`);
           // console.log('first photo: ', results);
@@ -205,8 +205,27 @@ export const ex01 = async (req, res) => {
   }).reduce((prev, curr) => {
     return prev + curr
   })
+    const total_photo_old_des = oldList.map((e) => {
+        return typeof e.description === "string" ? e.description.length : 0;
+    }).reduce((prev, curr) => {
+      return prev + curr
+    }) + oldList2.map((e) => {
+      return typeof e.description === "string" ? e.description.length : 0;
+  }).reduce((prev, curr) => {
+    return prev + curr
+  })
+    const total_photo_new_des = newList.map((e) => {
+      return typeof e.description === "string" ? e.description.length : 0;
+    }).reduce((prev, curr) => {
+      return prev + curr
+    }) + newList2.map((e) => {
+      return typeof e.description === "string" ? e.description.length : 0;
+  }).reduce((prev, curr) => {
+    return prev + curr
+  })
     
-    // console.log(total_likes)
+    console.log(total_photo_old_des)
+    console.log(total_photo_new_des)
    
 
     // const ncolorL = Array.from(new Set(newList.map(e => e.color)))
@@ -247,8 +266,8 @@ export const ex01 = async (req, res) => {
       }
     })
 
-    console.log(nLoc)
+
     
-    return res.render("ex01", {nLoc,oLoc,oldgroup,newgroup, total_photo_user_old, total_photo_user_new,total_likes_user_old,total_likes_user_new, total_likes_old, total_likes_new,totalOldColor_analyse,totalNewColor_analyse, totalOldColor: totalOldColor_to_rgb,totalNewColor:totalNewColor_to_rgb,  oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
+    return res.render("ex01", {total_photo_old_des,total_photo_new_des, nLoc,oLoc,oldgroup,newgroup, total_photo_user_old, total_photo_user_new,total_likes_user_old,total_likes_user_new, total_likes_old, total_likes_new,totalOldColor_analyse,totalNewColor_analyse, totalOldColor: totalOldColor_to_rgb,totalNewColor:totalNewColor_to_rgb,  oldList: oldList,oldList2: oldList2, newList: newList,newList2: newList2, curPage: page ? page : 1, search: "male"})
       
 }
