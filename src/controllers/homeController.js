@@ -42,7 +42,7 @@ export const ex01 = async (req, res) => {
   let newList;
   let oldList2;
   let newList2;
-  await unsplash.search.getPhotos({query: "old", perPage: 30}).then(result => {
+  await unsplash.search.getPhotos({query: "elderly potrait", perPage: 30, page: 2}).then(result => {
         if (result.errors) {
        
           // console.log('error occurred: ', result.errors[0]);
@@ -63,7 +63,7 @@ export const ex01 = async (req, res) => {
         }
 
       });
-  await unsplash.search.getPhotos({query: "new", perPage: 30}).then(result => {
+  await unsplash.search.getPhotos({query: "potrait young", perPage: 30}).then(result => {
         if (result.errors) {
        
           // console.log('error occurred: ', result.errors[0]);
@@ -84,7 +84,7 @@ export const ex01 = async (req, res) => {
         }
 
       });
-  await unsplash.search.getPhotos({query: "old", perPage: 30, page:2}).then(result => {
+  await unsplash.search.getPhotos({query: "elderly potrait", perPage: 30, page:1}).then(result => {
         if (result.errors) {
        
           // console.log('error occurred: ', result.errors[0]);
@@ -105,7 +105,7 @@ export const ex01 = async (req, res) => {
         }
 
       });
-  await unsplash.search.getPhotos({query: "new", perPage: 30, page:2}).then(result => {
+  await unsplash.search.getPhotos({query: "potrait young", perPage: 30, page:4}).then(result => {
         if (result.errors) {
        
           // console.log('error occurred: ', result.errors[0]);
@@ -126,9 +126,12 @@ export const ex01 = async (req, res) => {
         }
 
       });
-    const ocolorL = Array.from(new Set(oldList.map(e => e.color)))
-    const ocolorL2 = Array.from(new Set(oldList2.map(e => e.color)))
-    const totalOldColor = Array.from(new Set(ocolorL.concat(ocolorL2)))
+      // const ocolorL = Array.from(new Set(oldList.map(e => e.color)))
+      // const ocolorL2 = Array.from(new Set(oldList2.map(e => e.color)))
+      // const totalOldColor = Array.from(new Set(ocolorL.concat(ocolorL2)))
+    const ocolorL = Array.from((oldList.map(e => e.color)))
+    const ocolorL2 = Array.from((oldList2.map(e => e.color)))
+    const totalOldColor = Array.from(ocolorL.concat(ocolorL2))
     const totalOldColor_to_rgb = totalOldColor.map((hex) => {
       let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
       return result ? {
@@ -137,6 +140,7 @@ export const ex01 = async (req, res) => {
         b: parseInt(result[3], 16)
       } : null;
     })
+   
     const totalOldColor_analyse = totalOldColor_to_rgb.reduce((prev, curr) => {
       const r = prev.r + curr.r;
       const g = prev.g + curr.g;
@@ -205,9 +209,12 @@ export const ex01 = async (req, res) => {
     // console.log(total_likes)
    
 
-    const ncolorL = Array.from(new Set(newList.map(e => e.color)))
-    const ncolorL2 = Array.from(new Set(newList2.map(e => e.color)))
-    const totalNewColor = Array.from(new Set(ncolorL.concat(ncolorL2)))
+    // const ncolorL = Array.from(new Set(newList.map(e => e.color)))
+    // const ncolorL2 = Array.from(new Set(newList2.map(e => e.color)))
+    // const totalNewColor = Array.from(new Set(ncolorL.concat(ncolorL2)))
+    const ncolorL = Array.from((newList.map(e => e.color)))
+    const ncolorL2 = Array.from((newList2.map(e => e.color)))
+    const totalNewColor = Array.from((ncolorL.concat(ncolorL2)))
     const totalNewColor_to_rgb = totalNewColor.map((hex) => {
       let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
       return result ? {
